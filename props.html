@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html 
+   <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function Btn({text, chageValue}) {
+      return(
+      <button
+       onClick ={chageValue}
+       style = {{
+        backgroundColor : "orange",
+        color : "white",
+        padding :  " 10px 20px",
+        border : 0 ,
+        borderRadious :10
+
+      }}>
+       {text}
+      </button>
+      )
+    }
+    function App() {
+       const [value,setValue] = React.useState("Save Changes")
+       const chageValue =()=>{
+        setValue("Revert Changes")
+       }
+        
+        return <div>
+          <Btn text={value} chageValue={chageValue}/>
+        
+     
+        </div>;
+        
+    }
+    // document.getElementById("root")
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
